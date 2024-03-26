@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #0D1717;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+#heading{
+    position: absolute;   /* use for static positions*/
+    top: 1.5%;
+    font-size: 1.4rem;
+    font-family: Meliana;
+    color: rgb(158, 158, 7);
+}
+#grid{
+    position: absolute;
+    top: 15%;
+    height: 32rem;
+    width: 32rem;
+    opacity: 0.67;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+}
+.grid-item{
+    position: relative;
+    transition: all .4s linear;
+    transform-style: presence-3d;
+    cursor: pointer;
+}
+
+.grid-item,.backTile,.frontTile{
+    height:7.5rem;
+    width: 7.5rem;
+}
+.backTile,.frontTile{
+    position: absolute;
+    backface-visibility: hidden;
+}
+.frontTile{
+    background:rgb(158, 158, 7);
+    background-size: contain;
+    border-radius: .3rem;
+    box-shadow: rgb(149, 157, 165,0.3)0px 8px 24px;
+    padding: 3rem;
+}
+.backTile{
+    transform: rotateY(180deg);
+    background-size: cover;
+    background-position: center center;
+    box-shadow: rgb(149, 157, 165,0.4)0px 8px 24px;
+    padding: 3rem;
+    border-radius: .3rem;
+}
+.selectedCard{
+    transform: rotateY(180deg);
+}
+
+
+/* CSS to show backTile when grid-item has selectedCard class */
+.grid-item.selectedCard .backTile {
+    transform: rotateY(0deg);
+}
+
+.grid-item.selectedCard .frontTile {
+    transform: rotateY(180deg);
+}
+
+.matchedCards .frontTile{
+    background-color: green;
+}
+#detailedInfo{
+    position: absolute;
+    height:5vh;
+    width: 70%;
+    bottom: 11%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.ScoreBoard{
+    position: absolute;
+    bottom:  7%;
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.MaxScoreBoard{
+    position: absolute;
+    bottom:6%;
+}
+.info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: rgb(158, 158, 12);
+    font-size: 1em;
+    margin: 0 10px;
+}
+.info p{
+    font-size:1.5em;
+}
+.matchedCards{
+    border: solid 3px green;
+}
